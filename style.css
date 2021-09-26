@@ -1,0 +1,166 @@
+/* global stuff */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --fontColor: #eee;
+    --backgroundColor: #111;
+    --lightgrayColor: #888;
+    --darkgrayColor: #333;
+    --overlayColor: rgba(5, 5, 5, 0.85);
+}
+
+body {
+    background-color: var(--backgroundColor);
+    color: var(--fontColor);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* container */
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 50px 0px;
+}
+
+.container h2 {
+    font-size: 30px;
+    margin: 5px 0px;
+    font-weight: 500;
+}
+
+/* image */
+
+.imageWrapper img {
+    width: 100%;
+    border-radius: 3px;
+}
+
+/* controls */
+
+.controls {
+    display: flex;
+    justify-content: space-around;
+}
+
+.control {
+    width: 50px;
+    text-align: center;
+}
+
+.control > img {
+    width: 30px;
+    display: block;
+    margin: 20px auto 10px auto;
+    transition: opacity 100ms linear;
+}
+
+.control > img:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.control label {
+    opacity: 0.7;
+}
+
+/* rating */
+
+.ratingControl {
+    position: relative;
+}
+
+.ratingLabel {
+    transition: opacity 100ms linear;
+}
+
+.ratingOptions {
+    display: none;
+}
+
+/* rating circle */
+
+.ratingCircle {
+    z-index: 20;
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border: 1px solid var(--lightgrayColor);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--darkgrayColor);
+    cursor: pointer;
+}
+
+.ratingCircle:hover {
+    border: 1px solid var(--fontColor);
+}
+/* thumbs up and down */
+
+.thumbs-up,
+.thumbs-down {
+    transform: scale(0.5);
+    left: -20px;
+    top: -10px;
+    transition: transform 180ms ease-out, background-color 80ms linear;
+}
+
+.flashing {
+    background-color: var(--fontColor);
+}
+
+.thumbs-up.out {
+    transform: scale(1) translate(-70px, -80px);
+}
+
+.thumbs-down.out {
+    transform: scale(1) translate(+70px, -80px);
+}
+
+.thumbs-up-image,
+.thumbs-down-image {
+    width: 30px;
+}
+
+.ratingCircle img {
+    transform: translateY(1px);
+}
+
+.thumbs-down-image {
+    transform: scaleY(-1) translateY(-3px) !important;
+}
+
+.flipped {
+    transform: scaleY(-1);
+}
+
+/* cancel */
+
+.cancel {
+    width: 50px;
+    height: 50px;
+    top: 10px;
+    left: 0px;
+}
+
+.cancel img {
+    width: 15px;
+}
+
+/* overlay */
+
+.overlay {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--overlayColor);
+}

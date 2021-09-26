@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Rate Button</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="imageWrapper">
+            <img src="/img/mononoke.jpg" alt="Mononoke">
+        </div>
+        <h2>Princess Mononoke</h2>
+        <div class="controls">
+            <div class="control" title="Not implemented">
+                <img src="/img/check.svg" alt="add">
+                <label>Add</label>
+            </div>
+            <div class="control ratingControl">
+                <img class="ratingImage" src="/img/thumbs-up.svg" alt="Rate">
+                <label class="ratingLabel">Rate</label>
+                <div class="ratingOptions">
+                    <div class="overlay"></div>
+                    <div class="ratingCircle thumbs-up">
+                        <img class="thumbs-up-image" src="/img/thumbs-up.svg" alt="Thumbs Up">
+                    </div>
+                    <div class="ratingCircle thumbs-down">
+                        <img class="thumbs-down-image" src="/img/thumbs-up.svg" alt="Thumbs Down">
+                    </div>
+                    <div class="ratingCircle cancel">
+                        <img class="cancelImage" src="/img/times.svg" alt="Cancel">
+                    </div>                   
+                </div>
+            </div>
+            <div class="control" title="Not implemented">
+                <img src="/img/share.svg" alt="Share">
+                <label>Share</label>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+    <script src="main.js"></script>    
+</body>
+</html>
