@@ -48,11 +48,12 @@ body {
 }
 
 .control {
+    position: relative;
     width: 50px;
     text-align: center;
 }
 
-.control > img {
+.controlImage {
     width: 30px;
     display: block;
     margin: 20px auto 10px auto;
@@ -62,11 +63,12 @@ body {
 
 .control label {
     opacity: 0.7;
+    transition: opacity 100ms linear;
 }
 
 /* control after element */
 
-.control::after {
+.controlContent::after {
     content: "";
     margin-top: 5px;
     display: block;
@@ -80,19 +82,11 @@ body {
     opacity: 0;
 }
 
-.control:not(.out):hover::after {
+.controlContent:hover::after {
     width: 100%;
 }
 
-/* rating */
-
-.ratingControl {
-    position: relative;
-}
-
-.ratingLabel {
-    transition: opacity 100ms linear;
-}
+/* rating options */
 
 .ratingOptions {
     display: none;
