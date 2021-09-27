@@ -4,6 +4,8 @@ const currentMovie = {
     rating: null,
 };
 
+const ratingOptions = ["up", "down"];
+
 let ratingPossible = false;
 
 $(".ratingImage").click(showRatingOptions);
@@ -23,63 +25,33 @@ function hideRatingOptions() {
     $(".thumbs-up, .thumbs-down").removeClass("out");
 }
 
-$(".thumbs-up").click(function () {
-    if (!ratingPossible) return;
-    ratingPossible = false;
-    if (currentMovie.rating == null || currentMovie.rating == "-") {
-        currentMovie.rating = "+";
-        $(".ratingLabel").text("Rated");
-        flash($(this));
-        $(".thumbs-down-image").attr("src", "/img/thumbs-up.svg");
-        $(".thumbs-up-image").attr("src", "/img/thumbs-up-filled.svg");
+for (let i = 0; i < 2; i++) {
+    const option = ratingOptions[i];
+    const option2 = ratingOptions[1 - i];
+    $(`.thumbs-${option}`).click(function () {
+        if (!ratingPossible) return;
+        ratingPossible = false;
+        $(this).addClass("flashing");
         setTimeout(() => {
-            hideRatingOptions();
-            $(".ratingImage")
-                .attr("src", "/img/thumbs-up-filled.svg")
-                .removeClass("flipped");
-        }, 1000);
-    } else if (currentMovie.rating == "+") {
-        currentMovie.rating = null;
-        $(".ratingLabel").text("Rate");
-        flash($(this));
-        $(this).children("img").attr("src", "/img/thumbs-up.svg");
-        setTimeout(() => {
-            hideRatingOptions();
-            $(".ratingImage").attr("src", "/img/thumbs-up.svg");
-        }, 1000);
-    }
-});
-
-function flash(element) {
-    element.addClass("flashing");
-    setTimeout(() => {
-        element.removeClass("flashing");
-    }, 80);
+            $(this).removeClass("flashing");
+        }, 80);
+        if (currentMovie.rating != option) {
+            currentMovie.rating = option;
+            $(".ratingLabel").text("Rated");
+            $(`.thumbs-${option}-image`).attr("src", `/img/thumbs-${option}-filled.svg`);
+            $(`.thumbs-${option2}-image`).attr("src", `/img/thumbs-${option2}.svg`);
+            setTimeout(() => {
+                hideRatingOptions();
+                $(".ratingImage").attr("src", `/img/thumbs-${option}-filled.svg`);
+            }, 1000);
+        } else if (currentMovie.rating == option) {
+            currentMovie.rating = null;
+            $(".ratingLabel").text("Rate");
+            $(`.thumbs-${option}-image`).attr("src", `/img/thumbs-${option}.svg`);
+            setTimeout(() => {
+                hideRatingOptions();
+                $(".ratingImage").attr("src", "/img/thumbs-up.svg");
+            }, 1000);
+        }
+    });
 }
-
-$(".thumbs-down").click(function () {
-    if (!ratingPossible) return;
-    ratingPossible = false;
-    if (currentMovie.rating == null || currentMovie.rating == "+") {
-        currentMovie.rating = "-";
-        $(".ratingLabel").text("Rated");
-        flash($(this));
-        $(".thumbs-up-image").attr("src", "/img/thumbs-up.svg");
-        $(".thumbs-down-image").attr("src", "/img/thumbs-up-filled.svg");
-        setTimeout(() => {
-            hideRatingOptions();
-            $(".ratingImage")
-                .attr("src", "/img/thumbs-up-filled.svg")
-                .addClass("flipped");
-        }, 1000);
-    } else if (currentMovie.rating == "-") {
-        currentMovie.rating = null;
-        $(".ratingLabel").text("Rate");
-        flash($(this));
-        $(this).children("img").attr("src", "/img/thumbs-up.svg");
-        setTimeout(() => {
-            hideRatingOptions();
-            $(".ratingImage").attr("src", "/img/thumbs-up.svg").removeClass("flipped");
-        }, 1000);
-    }
-});

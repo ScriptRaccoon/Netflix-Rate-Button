@@ -132,14 +132,6 @@ body {
     transform: translateY(1px);
 }
 
-.thumbs-down-image {
-    transform: scaleY(-1) translateY(-3px) !important;
-}
-
-.flipped {
-    transform: scaleY(-1);
-}
-
 /* cancel */
 
 .cancel {
