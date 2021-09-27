@@ -14,15 +14,15 @@ $(".cancel").click(hideRatingOptions);
 function showRatingOptions() {
     ratingPossible = true;
     $(".ratingOptions").fadeIn(200);
-    $(".ratingLabel").css("opacity", 0);
     $(".thumbs-up, .thumbs-down").addClass("out");
+    $(".ratingControl").addClass("out");
 }
 
 function hideRatingOptions() {
     ratingPossible = false;
     $(".ratingOptions").fadeOut(200);
-    $(".ratingLabel").css("opacity", 1);
     $(".thumbs-up, .thumbs-down").removeClass("out");
+    $(".ratingControl").removeClass("out");
 }
 
 for (let i = 0; i < 2; i++) {

@@ -22,7 +22,7 @@ body {
 /* container */
 
 .container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 50px 0px;
 }
@@ -57,15 +57,31 @@ body {
     display: block;
     margin: 20px auto 10px auto;
     transition: opacity 100ms linear;
-}
-
-.control > img:hover {
     cursor: pointer;
-    opacity: 0.7;
 }
 
 .control label {
     opacity: 0.7;
+}
+
+/* control after element */
+
+.control::after {
+    content: "";
+    margin-top: 5px;
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: var(--fontColor);
+    transition: width 90ms ease-in-out;
+}
+
+.control.out label {
+    opacity: 0;
+}
+
+.control:not(.out):hover::after {
+    width: 100%;
 }
 
 /* rating */
