@@ -48,14 +48,14 @@ body {
 
 .control {
     position: relative;
-    width: 50px;
+    width: 52px;
     text-align: center;
 }
 
 .controlImage {
     display: block;
-    width: 30px;
-    margin: 20px auto 10px auto;
+    height: 30px;
+    margin: 20px auto 15px auto;
     transition: opacity 100ms linear;
     cursor: pointer;
 }
